@@ -1,0 +1,183 @@
+body {
+	font-family: 'Bangers';
+	background: rgb(68,68,68);
+	background: linear-gradient(180deg, rgba(34,34,34,1) 0vh, rgba(102,102,102,1) 100vh);
+	background-attachment: fixed;
+	color: #DDD;
+	text-shadow: 2px 2px #000;
+}
+
+p {
+	text-align: center;
+	width: 100%;
+	display: inline-block;
+	transform: rotate(1deg);
+	font-size: 1.2em;
+}
+
+a {
+	color: #0066b2;
+	transition: all .5s;
+	position: relative;
+	line-height: 1;
+}
+
+a:hover {
+	font-size: 1.3em;
+	line-height: 0.7;
+}
+
+h1 {
+	text-align: center;
+	max-width: 600px;
+	margin: 0 auto;
+	transform: rotate(-1deg);
+}
+
+#games {
+	max-width: 550px;
+	margin: 0 auto;
+}
+
+.vs{
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+
+.playerAName, .playerBName {
+	max-width: 40%;
+}
+
+.playerAName, .playerAHand {
+	float: left;
+}
+
+.playerBName, .playerBHand {
+	float: right;
+	text-align: right;
+}
+
+.playerAHand, .playerBHand {
+	position: relative;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	font-size: 50px;
+	text-shadow: none;
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.playerAHand {
+	transform: rotate(90deg) scale(-1, 1);
+	left: 20px;
+}
+.playerBHand {
+	transform: rotate(-90deg);
+	left: -20px;
+}
+
+.playerAHand.inProgress {
+	animation: playerA .3s ease-in-out 0s infinite alternate;
+}
+
+.playerBHand.inProgress {
+	animation: playerB .3s ease-in-out 0s infinite alternate;
+}
+
+#games div {
+	display: inline-block;
+	width: calc(100% - 20px);
+	margin: 5px;
+	padding: 5px;
+	border: 2px solid #EEE;
+	font-size: 1.5em;
+	border-radius: 10px;
+	animation-name: appear;
+	animation-duration: .5s;
+	animation-timing-function: ease-in-out;
+	background: #444;
+	box-shadow: inset 3px 3px #000, 3px 3px #000;
+}
+
+#games div.finished {
+	animation-name: finished;
+}
+
+#games div.winnerB {
+	background: rgb(43,13,13);
+	background: linear-gradient(90deg, rgba(43,13,13,1) 0%, rgba(61,99,54,1) 100%);
+}
+#games div.winnerA {
+	background: rgb(43,13,13);
+	background: linear-gradient(-90deg, rgba(43,13,13,1) 0%, rgba(61,99,54,1) 100%);
+}
+#games div.draw {
+	background: rgb(68,68,68);
+	background: linear-gradient(0deg, rgba(34,34,34,1) 0%, rgba(102,102,102,1) 100%);
+}
+
+@keyframes playerA {
+	from {
+		bottom: 40px;
+		left: 0px;
+		transform: rotate(0deg) scale(-1, 1);
+	}
+	to {
+		bottom: 0px;
+		left: 40px;
+		transform: rotate(90deg) scale(-1, 1);
+	}
+}
+
+@keyframes playerB {
+	from {
+		bottom: 40px;
+		left: 0px;
+		transform: rotate(0deg);
+	}
+	to {
+		bottom: 0px;
+		left: -40px;
+		transform: rotate(-90deg);
+	}
+}
+
+@keyframes appear{
+	from {
+		max-height: 0px;
+		opacity: 0;
+	}
+	to {
+		max-height: 300px;
+		opacity: 1:
+	}
+}
+
+@keyframes finished{
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+::-moz-selection { /* Code for Firefox */
+	background: white;
+	color: black;
+	text-shadow: none;
+}
+
+::selection {
+	background: white;
+	color: black;
+	text-shadow: none;
+}
